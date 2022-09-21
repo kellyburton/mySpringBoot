@@ -34,8 +34,12 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+            		<buildArgs>
+                		<JAR_FILE>${project.build.finalName}.jar</JAR_FILE>
+            		</buildArgs>
+        		</configuration>
 			</plugin>
 		</plugins>
 	</build>
-
 </project>
