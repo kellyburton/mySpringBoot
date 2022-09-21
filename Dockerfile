@@ -1,5 +1,4 @@
-FROM openjdk
-#FROM maven:latest
+FROM openjdk:20-jdk-slim
 # image layer
 WORKDIR /app
 ADD pom.xml /app
@@ -7,8 +6,8 @@ ADD . /app
 RUN /app/mvnw verify clean package -DskipTest --fail-never
 
 # Image layer: with the application
-FROM openjdk
+FROM openjdk:20-jdk-slim
 WORKDIR /developments/
-COPY --from=0 /app/target/*.jar ./
+COPY --from=0 /app/target/*.jar ./app.jar
 EXPOSE 8080
-ENTRYPOINT ["java","-jar","/developments/demo-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java","-jar","/developments/app.jar"]
