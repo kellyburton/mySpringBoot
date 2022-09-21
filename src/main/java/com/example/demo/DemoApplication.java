@@ -20,7 +20,7 @@
 
                   @GetMapping("/")
                   public String hello2() {
-                      String result = "to print your name use http://localhost:8080/hello?name=Your Name";
+                      String result = "to print your name use http://localhost:8080/hello?name=My Name it works.";
                       return result;
                   }
 
